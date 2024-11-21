@@ -1,0 +1,42 @@
+.container {
+  width: 280px;
+  height: 95vh;
+  position: fixed;
+  left: 0;
+}
+.search {
+  border-radius: 45px;
+}
+
+.priceContainer {
+  justify-content: center;
+}
+
+.priceRange {
+    padding-top: 20px;
+  display: flex; /* Makes the inputs align side by side */
+  gap: 50px; /* Adds spacing between the inputs */
+  justify-content: center;
+}
+
+.range {
+  flex: 0 0 auto; /* Prevents inputs from stretching */
+  padding: 5px; /* Adds spacing inside the input */
+  width: 80px;
+  border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+  border-radius: 15px; /* Optional: Rounds the corners */
+}
+
+.priceSlider {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center; // Center horizontally
+  align-items: center; // Center vertically (if needed)
+}
+.mat-slider {
+  transform: scale(2); /* Scale the entire slider by 1.5 times */
+}
+hr{
+    color: white;
+}
+

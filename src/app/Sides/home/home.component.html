@@ -1,1 +1,75 @@
-<p>home works!</p>
+<div
+  class="container d-flex flex-column flex-shrink-0 p-3 bg-dark"
+  style="width: 280px; height: 95vh"
+>
+  <!--bruge style her da hvis jeg gør det gennem min stylesheet vil min sidebar bliver placeret i midden-->
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <input
+        class="search form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+    </li>
+    <li>
+      <div class="priceContainer">
+        <div class="priceRange">
+          <input
+            class="range form-control me-1"
+            type="number" 
+            [placeholder]="'Min Value: ' + minSliderValue" 
+            [(ngModel)]="minSliderValue"
+            (input)="updateSliderValues('min', minSliderValue)"
+          />
+          <input
+            class="range form-control me-1"
+            type="number" 
+            [placeholder]="'Max Value: ' + maxSliderValue" 
+            [(ngModel)]="maxSliderValue"
+            (input)="updateSliderValues('max', maxSliderValue)"
+          />
+        </div>
+        <div class="priceSlider">
+          <mat-slider class="mat-slider">
+            <input (input)="MinValueChanged($event)" 
+            [value]="minSliderValue" 
+            matSliderStartThumb 
+            min="0" 
+            max="100000" matSliderStartThumb />
+            <input (input)="MaxValueChanged($event)"
+            [value]="maxSliderValue" 
+            matSliderEndThumb 
+            min="0" 
+            max="100000" matSliderEndThumb />
+          </mat-slider>
+        </div>
+      </div>
+    </li>
+    <li>
+      <a href="#" class="nav-link link-light"> Kategorier </a>
+    </li>
+    <hr />
+    <li>
+      <a href="#" class="nav-link link-light"> Køretøjer </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link link-light"> Legetøj </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link link-light"> Service </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link link-light"> Møbler </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link link-light"> Haveredskaber </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link link-light"> Cykler </a>
+    </li>
+    <li>
+      <a href="#" class="nav-link link-light"> Børneudstyr </a>
+    </li>
+  </ul>
+</div>
