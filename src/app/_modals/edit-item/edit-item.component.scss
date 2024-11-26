@@ -1,0 +1,21 @@
+.form-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  /* Group of inputs */
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .input-group input{
+    width: 200px;
+  }
+  
+  /* Textarea styling */
+  textarea {
+    width: 700px;
+    height: 300px;
+  }

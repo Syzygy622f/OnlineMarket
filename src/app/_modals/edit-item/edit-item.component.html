@@ -1,0 +1,29 @@
+<div class="modal-header">
+<h4 class="modal-title pull-left">{{item?.title}}</h4>
+<button type="button" class="btn-close close pull-right" (click)="bsModalRef.hide()">
+    <span class="visually-hidden">&times;</span>
+</button>
+</div>
+<form action="">
+<div class="modal-body">
+    <div class="form-container">
+
+    
+        <div class="input-group">
+            <input type="text" [placeholder]="item?.title">
+            <input type="text" [placeholder]="item?.price">
+        </div>
+            <textarea name="" type="text"  [placeholder]="item?.description" id=""></textarea>
+        </div>
+        <hr>
+        <h3>tilføj eller fjern billder</h3>
+        <button>add foto</button>
+        <!-- foreach loop
+        <img src="" alt="">
+        -->
+</div>
+<div class="modal-footer">
+        <button type="button" (click)="bsModalRef.hide()">Annuller</button>
+        <button>Gem</button>
+</div>
+</form>

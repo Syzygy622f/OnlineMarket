@@ -1,1 +1,22 @@
-<p>account works!</p>
+<div class="container d-flex flex-column flex-shrink-0 p-3 bg-dark">
+  <h2>Indstillinger</h2>
+  <hr />
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+        <a routerLink="/Account/Profile" routerLinkActive="active" class="nav-link link-light">Profil</a>
+    </li>
+    <hr />
+    <li>
+        <a routerLink="/Account/CreditCard" routerLinkActive="active" class="nav-link link-light">Kredit Kort</a>
+    </li>
+    <hr />
+    <li>
+      <a routerLink="/Account/SavedItems" routerLinkActive="active" class="nav-link link-light">Gemte Vare</a>
+    </li>
+    <hr />
+  </ul>
+</div>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

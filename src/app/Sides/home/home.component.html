@@ -13,37 +13,35 @@
       />
     </li>
     <li>
-      <div class="priceContainer">
-        <div class="priceRange">
+      <div class="slider-container">
+        <div>
+          <label for="minValue">Min:</label>
           <input
-            class="range form-control me-1"
-            type="number" 
-            [placeholder]="'Min Value: ' + minSliderValue" 
-            [(ngModel)]="minSliderValue"
-            (input)="updateSliderValues('min', minSliderValue)"
-          />
-          <input
-            class="range form-control me-1"
-            type="number" 
-            [placeholder]="'Max Value: ' + maxSliderValue" 
-            [(ngModel)]="maxSliderValue"
-            (input)="updateSliderValues('max', maxSliderValue)"
+            id="minValue"
+            type="number"
+            [(ngModel)]="minValue"
+            (input)="onInputChange()"
           />
         </div>
-        <div class="priceSlider">
-          <mat-slider class="mat-slider">
-            <input (input)="MinValueChanged($event)" 
-            [value]="minSliderValue" 
-            matSliderStartThumb 
-            min="0" 
-            max="100000" matSliderStartThumb />
-            <input (input)="MaxValueChanged($event)"
-            [value]="maxSliderValue" 
-            matSliderEndThumb 
-            min="0" 
-            max="100000" matSliderEndThumb />
-          </mat-slider>
+        <div>
+          <label for="maxValue">Max:</label>
+          <input
+            id="maxValue"
+            type="number"
+            [(ngModel)]="maxValue"
+            (input)="onInputChange()"
+          />
         </div>
+      
+        <mat-slider
+          class="range-slider"
+          [min]="minValue"
+          [max]="maxValue"
+          [(ngModel)]="sliderValue"
+          thumbLabel
+          tickInterval="auto"
+        ></mat-slider>
+        <p>Selected Value: {{ sliderValue }}</p>
       </div>
     </li>
     <li>
@@ -72,4 +70,10 @@
       <a href="#" class="nav-link link-light"> Børneudstyr </a>
     </li>
   </ul>
+</div>
+<div class="mainContainer" *ngFor="let item of items;">
+  <div class="card">
+    <img [src]="getMainPhoto(item.photos)" alt="Main photo">
+    <h5>{{ item.price }} kr</h5>
+  </div>
 </div>

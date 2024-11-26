@@ -1,0 +1,59 @@
+.card-container {
+    display: flex;
+    justify-content: center; /* Center card horizontally */
+    align-items: center;    /* Center card vertically */
+    height: 100vh;          /* Full height of viewport */
+    background-color: #121212; /* Optional dark background for contrast */
+  }
+  
+  .card {
+    max-width: 500px; /* Restrict card width */
+    width: 100%;
+    padding: 20px;  /* Add padding to the card */
+    border-radius: 8px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px; /* Add space between inputs */
+  }
+  
+  .input-group .form-label {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .input-group input {
+    width: 100%; /* Ensure input fields take the full width of the container */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Living Group: 60/40 ratio */
+  .livingGroup .col-7 {
+    width: 60%;
+  }
+  
+  .livingGroup .col-5 {
+    width: 40%;
+  }
+  
+  /* Button Styling */
+  button {
+    width: 100%; /* Full-width button */
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  img {
+    max-width: 100%; /* Ensure the image doesn't overflow */
+    height: auto;
+    border: 1px solid black;
+  }
