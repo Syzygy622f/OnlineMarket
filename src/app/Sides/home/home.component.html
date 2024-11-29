@@ -32,16 +32,17 @@
             (input)="onInputChange()"
           />
         </div>
-      
+
         <mat-slider
           class="range-slider"
           [min]="minValue"
           [max]="maxValue"
-          [(ngModel)]="sliderValue"
           thumbLabel
           tickInterval="auto"
-        ></mat-slider>
-        <p>Selected Value: {{ sliderValue }}</p>
+        >
+          <input matSliderStartThumb />
+          <input matSliderEndThumb />
+        </mat-slider>
       </div>
     </li>
     <li>
@@ -71,9 +72,23 @@
     </li>
   </ul>
 </div>
-<div class="mainContainer" *ngFor="let item of items;">
-  <div class="card">
-    <img [src]="getMainPhoto(item.photos)" alt="Main photo">
-    <h5>{{ item.price }} kr</h5>
+<div class="mainContainer">
+  <div class="row">
+    <div
+      class="col-12 col-sm-6 col-md-1 col-lg-2"
+      style="max-width: 19.8%"
+      *ngFor="let item of items"
+    >
+      <div class="card" routerLink="/ViewItem/{{item.id}}">
+        <img
+          [src]="getMainPhoto(item.itemPhotos)"
+          class="card-img-top"
+          [alt]="item.title"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.price }} kr</h5>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -7,5 +7,8 @@ export interface item{
     price: number;
     createdAt: Date;
     userId: number;
-    photos: ItemPhoto[];
+    city: string;
+    name: string;
+    lastName: string;
+    itemPhotos: ItemPhoto[];
 }

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown'
+import { AccountService } from '../../_Services/account.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,5 +11,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown'
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
+private accountService = inject(AccountService);
 
+
+logout(){
+  this.accountService.logout();
+}
 }

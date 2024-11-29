@@ -18,7 +18,7 @@
           <a class="nav-link active" routerLink="/" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/ViewItem/1" href="#">Features</a>
+          <a class="nav-link" routerLink="/Profile" href="#">Features</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
@@ -33,7 +33,7 @@
                 <a routerLink="/Items" class="dropdown-item">Produkter</a>
                 <a routerLink="/Register" class="dropdown-item">Register</a>
                 <a routerLink="/Login" class="dropdown-item">Login</a>
-                <a class="dropdown-item">logout</a>
+                <a class="dropdown-item" (click)="logout()">logout</a>
             </div>
         </div>
       </ul>

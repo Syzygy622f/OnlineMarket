@@ -1,44 +1,94 @@
-<div class="container">
-    <div class="card p-4">
-      <div class="profile-section">
-        <!-- Profile Image -->
-        <div class="profile-image">
-          <img src="https://via.placeholder.com/150" alt="Profile Image">
-        </div>
 
-        <!-- Form Section -->
-        <div class="form-section">
-          <form>
-            <div class="row mb-4">
-              <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Fornavn">
-              </div>
-              <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Efternavn">
-              </div>
+
+<div class="container">
+  <div class="card p-4">
+    <div class="profile-section">
+      <div  *ngIf="model$ | async as model" class="form-section">
+        <form #updateUserForm="ngForm">
+          <div class="profile-container"> 
+            <div class="profile-image">
+              <img [src]="model.photo.url" alt="Profile Image" />
+              <input
+                type="text"
+                name="PhotoUrl"
+                [(ngModel)]="updateModel.photo.url"
+                class="form-control"
+                placeholder="Enter image URL"
+              />
             </div>
-            <div class="row mb-4">
-              <div class="col-md-4">
-                <input type="text" class="form-control" placeholder="Fødselsdato">
-              </div>
-              <div class="col-md-4">
-                <input type="text" class="form-control" placeholder="By">
-              </div>
-              <div class="col-md-4">
-                <input type="number" class="form-control" placeholder="Postnummer">
-              </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <input
+                type="text"
+                name="name"
+                [(ngModel)]="updateModel.name"
+                class="form-control"
+                [placeholder]="model.name"
+              />
             </div>
-            <div class="mb-4">
-              <input type="text" class="form-control" placeholder="Adresse og vejnummer">
+            <div class="col-md-6">
+              <input
+                type="text"
+                name="LastName"
+                [(ngModel)]="updateModel.lastName"
+                class="form-control"
+                [placeholder]="model.lastName"
+              />
             </div>
-            <div class="mb-4">
-              <input type="email" class="form-control" placeholder="Mail adresse">
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-4">
+              <input
+                type="date"
+                name="DateOfBirth"
+                [(ngModel)]="updateModel.dateOfBirth"
+                class="form-control"
+                [placeholder]="model.dateOfBirth"
+              />
             </div>
-            <div class="d-grid">
-              <button type="submit" class="btn btn-primary">Opdater profil</button>
+            <div class="col-md-4">
+              <input
+                type="text"
+                name="city"
+                [(ngModel)]="updateModel.livingplace.city"
+                class="form-control"
+                [placeholder]="model.livingplace.city"
+              />
             </div>
-          </form>
-        </div>
+            <div class="col-md-4">
+              <input
+                type="number"
+                name="PostCode"
+                [(ngModel)]="updateModel.livingplace.postCode"
+                class="form-control"
+                [placeholder]="model.livingplace.postCode"
+              />
+            </div>
+          </div>
+          <div class="mb-4">
+            <input
+              type="text"
+              name="Address"
+              [(ngModel)]="updateModel.livingplace.address"
+              class="form-control"
+              [placeholder]="model.livingplace.address"
+            />
+          </div>
+          <div class="mb-4">
+            <input
+              type="text"
+              name="Mail"
+              [(ngModel)]="updateModel.mail"
+              class="form-control"
+              [placeholder]="model.mail"
+            />
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-primary">Opdater profil</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>

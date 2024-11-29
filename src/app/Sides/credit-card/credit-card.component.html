@@ -9,24 +9,24 @@
     </ul>
 </div>
 <div class="card">
-    <form>
+    <form #CreditForm="ngForm" (ngSubmit)="CreateCard()">
         <div class="form-group">
             <div class="input-group">
                 <a>kort holders navn</a>
-                <input type="text">
+                <input [(ngModel)]="model.Name" name="Name" type="text">
             </div>
             <div class="input-group">
                 <a>kort nummer</a>
-                <input type="number">
+                <input [(ngModel)]="model.CardNumber" name="CardNumber" type="text" maxlength="16">
             </div>            
             <div class="input-group">
                 <a>udløbsdato</a>
-                <input type="date">
+                <input [(ngModel)]="model.ExpirationDate" name="ExpirationDate" type="date">
                 <a>CVV</a>
-                <input type="number">
+                <input [(ngModel)]="model.Cvv" name="Cvv" type="number">
             </div>
         </div>
-        <button>Register</button>
+        <button class="btn btn-primary" >Register</button>
     </form>
 </div>
 </div>
