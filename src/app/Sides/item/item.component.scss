@@ -1,9 +1,12 @@
 .container {
+  display: flex;
+  flex-direction: column;
     width: 20vw;
-    height: 77vh;
     position: fixed;
     right: 0;
     border-bottom-left-radius: 20px;
+    overflow: auto; /* Ensure scroll if content exceeds height */
+    height: auto; /* Allow height to grow */
   }
   .ProductDetails{
     height: 40vh;
@@ -12,6 +15,10 @@
     border: solid;
     border-radius: 20px;
     border-color: white;
+}
+.container .AddAd {
+  display: flex;
+  justify-content: flex-end; /* Align to the right side */
 }
 input::placeholder{
     color: white;
@@ -37,7 +44,9 @@ button{
 .Title input{
 font-size: 22px;
 }
-
+.AddImages {
+  flex: 1;
+}
 .mainContainer {
   display: flex;
   justify-content: center;

@@ -1,6 +1,7 @@
 export class LivingPlace{
     id: number = 0;
     city: string = '';
-    postCode: number = 0;
+    postCode: number | null = null;
     address: string = '';
+    userId?: number = 0;
 }

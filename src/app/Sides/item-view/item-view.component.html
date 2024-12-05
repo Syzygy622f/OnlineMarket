@@ -45,6 +45,7 @@
     </li>
   </ul>
 </div>
+
 <div class="carousel-container" *ngIf="item?.itemPhotos">
   <carousel *ngIf="isBrowser" [interval]="0" class="carousel-wrapper">
     <slide *ngFor="let photo of item?.itemPhotos">

@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h3 class="modal-title pull-left">
-    Du er ved at fjerne et announce fra dine produkter!
+    Du er ved at fjerne {{title}} announce fra dine produkter!
   </h3>
   <button
     type="button"
@@ -14,5 +14,5 @@
 </div>
 <div class="modal-footer">
   <button type="button" (click)="bsModalRef.hide()">Annuller</button>
-  <button>Gem</button>
+  <button (click)="onDeleteItem()">Slet</button>
 </div>

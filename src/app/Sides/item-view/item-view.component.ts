@@ -1,12 +1,12 @@
 import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { item } from '../../_models/Item';
 import { ItemService } from '../../_Services/item.service';
 import { ActivatedRoute } from '@angular/router';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { UserService } from '../../_Services/user.service';
-import { SaveList } from '../../_models/SaveList';
+import { SaveList } from '../../_models/User/SaveList';
 import { ToastrService } from 'ngx-toastr';
+import { item } from '../../_models/Item/Item';
 
 @Component({
   selector: 'app-item-view',
@@ -28,11 +28,17 @@ export class ItemViewComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(this.platformId);
     console.log('isBrowser:', this.isBrowser);
 
+
+    //bliver brugt til at hente id fra items i home component
     this.route.params.subscribe((params) => {
       const id = params['id'];
       console.log('Retrieved ID:', id);
-      this.get(id); // Use the ID to fetch the full data
+      this.get(id); // bruger id til at hente announce fra metoden get
     });
+
+    
+
+
   }
 
   get(id: number) {

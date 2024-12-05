@@ -1,32 +1,53 @@
 <div class="container">
-<div class="title"><h2>For 10 kr. vil du kunne lægge announcer <br> op og sælgt ting, du skal bare registere <br> dit Kredit kort</h2></div><!--gør brug af if statement for nu div-->
-<!--<div class="title"><h2>Du har registeret dig til at kunne sælge</h2></div>-->
-<div class="linked-cards">
+  <div class="title">
+    <h2>
+      For 10 kr. vil du kunne lægge announcer <br />
+      op og sælgt ting, du skal bare registere <br />
+      dit Kredit kort
+    </h2>
+  </div>
+  <!--gør brug af if statement for nu div-->
+  <!--<div class="title"><h2>Du har registeret dig til at kunne sælge</h2></div>-->
+  <div class="linked-cards" *ngIf="ShowCards">
     <h3>Allerede linkede kort:</h3>
     <ul>
-        <li>Card ending in 1234</li>
-        <li>Card ending in 5678</li>
+      <li *ngFor="let card of ShowCards" class="card-item">
+        Card ending in {{ card.cardNumber }}
+        <svg (click)="OpenDeleteCardModal(card.id, card.cardNumber)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>        
+      </li>
     </ul>
-</div>
-<div class="card">
+  </div>
+  <div class="card">
     <form #CreditForm="ngForm" (ngSubmit)="CreateCard()">
-        <div class="form-group">
-            <div class="input-group">
-                <a>kort holders navn</a>
-                <input [(ngModel)]="model.Name" name="Name" type="text">
-            </div>
-            <div class="input-group">
-                <a>kort nummer</a>
-                <input [(ngModel)]="model.CardNumber" name="CardNumber" type="text" maxlength="16">
-            </div>            
-            <div class="input-group">
-                <a>udløbsdato</a>
-                <input [(ngModel)]="model.ExpirationDate" name="ExpirationDate" type="date">
-                <a>CVV</a>
-                <input [(ngModel)]="model.Cvv" name="Cvv" type="number">
-            </div>
+      <div class="form-group">
+        <div class="input-group">
+          <a>kort holders navn</a>
+          <input [(ngModel)]="model.nameHolder" name="Name" type="text" />
         </div>
-        <button class="btn btn-primary" >Register</button>
+        <div class="input-group">
+          <a>kort nummer</a>
+          <input
+            [(ngModel)]="model.cardNumber"
+            name="CardNumber"
+            type="text"
+            minlength="16"
+            maxlength="16"
+          />
+        </div>
+        <div class="input-group">
+          <a>udløbsdato</a>
+          <input
+            [(ngModel)]="model.expirationDate"
+            name="ExpirationDate"
+            type="date"
+          />
+          <a>CVV</a>
+          <input [(ngModel)]="model.Cvv" name="Cvv" type="number" />
+        </div>
+      </div>
+      <button class="btn btn-primary">Register</button>
     </form>
-</div>
+  </div>
 </div>

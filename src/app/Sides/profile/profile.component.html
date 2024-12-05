@@ -1,11 +1,9 @@
-
-
 <div class="container">
   <div class="card p-4">
     <div class="profile-section">
-      <div  *ngIf="model$ | async as model" class="form-section">
-        <form #updateUserForm="ngForm">
-          <div class="profile-container"> 
+      <div class="form-section">
+        <form (ngSubmit)="update()" #updateUserForm="ngForm">
+          <div class="profile-container">
             <div class="profile-image">
               <img [src]="model.photo.url" alt="Profile Image" />
               <input
@@ -42,27 +40,27 @@
               <input
                 type="date"
                 name="DateOfBirth"
-                [(ngModel)]="updateModel.dateOfBirth"
                 class="form-control"
-                [placeholder]="model.dateOfBirth"
+                disabled
+                [placeholder]="birtDate"
               />
             </div>
             <div class="col-md-4">
               <input
                 type="text"
-                name="city"
-                [(ngModel)]="updateModel.livingplace.city"
+                name="City"
+                [(ngModel)]="updateModel.livingPlace.city"
                 class="form-control"
-                [placeholder]="model.livingplace.city"
+                [placeholder]="model.livingPlace.city"
               />
             </div>
             <div class="col-md-4">
               <input
                 type="number"
                 name="PostCode"
-                [(ngModel)]="updateModel.livingplace.postCode"
+                [(ngModel)]="updateModel.livingPlace.postCode"
                 class="form-control"
-                [placeholder]="model.livingplace.postCode"
+                [placeholder]="model.livingPlace.postCode"
               />
             </div>
           </div>
@@ -70,14 +68,14 @@
             <input
               type="text"
               name="Address"
-              [(ngModel)]="updateModel.livingplace.address"
+              [(ngModel)]="updateModel.livingPlace.address"
               class="form-control"
-              [placeholder]="model.livingplace.address"
+              [placeholder]="model.livingPlace.address"
             />
           </div>
           <div class="mb-4">
             <input
-              type="text"
+              type="email"
               name="Mail"
               [(ngModel)]="updateModel.mail"
               class="form-control"

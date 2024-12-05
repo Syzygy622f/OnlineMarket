@@ -4,10 +4,11 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
-import { item } from '../../_models/Item';
+
 import { ItemService } from '../../_Services/item.service';
-import { ItemPhoto } from '../../_models/ItemPhoto';
+import { ItemPhoto } from '../../_models/Item/ItemPhoto';
 import { RouterLink } from '@angular/router';
+import { item } from '../../_models/Item/Item';
 
 @Component({
   selector: 'app-home',

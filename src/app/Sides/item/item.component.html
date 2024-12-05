@@ -6,20 +6,34 @@
       </div>
     </li>
     <hr />
-    <form>
+    <form #createItemForm="ngForm" (ngSubmit)="submitForm()" class="d-flex flex-column">
       <li>
         <div class="Title">
-          <input type="text" placeholder="Titel" class="nav-link link-light" />
+          <input
+            type="text"
+            [(ngModel)]="createItem.title"
+            name="title"
+            placeholder="Titel"
+            class="nav-link link-light"
+          />
         </div>
       </li>
       <li>
         <div class="Price">
-          <input type="text" placeholder="Pris" class="nav-link link-light" />
+          <input
+            type="number"
+            [(ngModel)]="createItem.price"
+            name="price"
+            placeholder="Pris"
+            class="nav-link link-light"
+          />
         </div>
       </li>
       <li>
         <div class="ProductDetails">
           <textarea
+            [(ngModel)]="createItem.description"
+            name="description"
             placeholder="Beskrivelse"
             class="nav-link link-light"
             rows="4"
@@ -29,16 +43,35 @@
       </li>
       <li>
         <div class="AddImages">
-          <input
-            type="button"
-            value="Tilføj billeder"
-            class="nav-link link-light"
-          />
+          <div *ngFor="let photo of createItem.photos; let i = index" class="mb-2">
+            <input
+              type="text"
+              [(ngModel)]="photo.url"
+              [name]="'photoUrl' + i"
+              placeholder="Enter image URL"
+              class="nav-link link-light mb-1"
+            />
+            <label>
+              <input
+                type="checkbox"
+                [(ngModel)]="photo.isMain"
+                [name]="'isMain' + i"
+              />
+              Main Photo
+            </label>
+            <button type="button" class="btn btn-danger btn-sm" (click)="removePhoto(i)">
+              Remove
+            </button>
+          </div>
+          <button type="button" class="btn btn-primary btn-sm mt-2" [disabled]="createItem.photos.length >= 2" (click)="addPhoto()">
+            Add Photo
+          </button>
         </div>
       </li>
+      <!-- Submit and Add Ad -->
       <li>
-        <div class="AddAd">
-          <button class="nav-link link-light">Tilføj announce</button>
+        <div class="d-flex align-items-center justify-content-between mt-3">
+          <button class="btn btn-primary btn-sm" type="submit">Tilføj announce</button>
         </div>
       </li>
     </form>
@@ -46,8 +79,8 @@
 </div>
 
 <div class="mainContainer">
-  <div class="card">
-    <img src="your-image.jpg" alt="Product image" />
+  <div class="card" *ngFor="let item of Items">
+    <img [src]="getMainPhoto(item.photos)" alt="Product image" />
 
     <div dropdown class="nav-item dropdown">
       <svg
@@ -64,10 +97,10 @@
         />
       </svg>
       <div *dropdownMenu class="dropdown-menu">
-        <a class="dropdown-item" (click)="openEditModal()">Rediger</a>
-        <a class="dropdown-item" (click)="openRemoveModal()">Fjern</a>
+        <a class="dropdown-item" (click)="openEditModal(item)">Rediger</a>
+        <a class="dropdown-item" (click)="openRemoveModal(item.title, item.id)">Fjern</a>
       </div>
     </div>
-    <h5>1000 kr</h5>
+    <h5>{{ item.price }} kr</h5>
   </div>
 </div>

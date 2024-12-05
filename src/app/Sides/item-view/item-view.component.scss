@@ -15,7 +15,7 @@
   .ProductDetails{
     border: solid;
     border-color: white;
-    height: 600px;
+    height: 50vh;
   }
   .Save svg{
     width: 30px;
@@ -33,27 +33,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh; // Ensures vertical centering
-    width: 90vw; // Ensures horizontal centering
+    height: calc(100vh - 40px); // Allows for slight padding if necessary
+    width: calc(100vw - 410px); // Subtract the `.container` width to fit the rest of the space
+    background-color: #222; // Optional: background color for clarity
   }
   
-  .carousel-wrapper {
-    max-width: 90%; // Increases the carousel width
-    max-height: 80%; // Increases the carousel height
-    height: 600px; // Sets a larger height for the carousel
-    width: 2000px; // Sets a larger width for the carousel
-  }
-
-  .image-wrapper {
-    width: 100%; // Matches the carousel's width
-    height: 100%; // Matches the carousel's height
-    display: flex; // Ensures the image centers properly
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .carousel-image {
-    max-width: 100%; // Prevents the image from exceeding the wrapper's width
-    max-height: 100%; // Prevents the image from exceeding the wrapper's height
-    object-fit: contain; // Adjusts the image to fit within the wrapper
-  }

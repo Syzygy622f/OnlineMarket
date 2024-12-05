@@ -104,3 +104,16 @@ button:hover {
 .linked-cards li:last-child {
     border-bottom: none;
 }
+
+.card-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Aligns items vertically centered */
+    gap: 8px; /* Adds spacing between the text and the icon */
+  }
+  
+  .size-6 {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+  }

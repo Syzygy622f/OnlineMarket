@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { item } from '../_models/Item';
 import { map, Observable } from 'rxjs';
-import { CreateItem } from '../_models/CreateItem';
+import { CreateItem } from '../_models/Item/CreateItem';
+import { item } from '../_models/Item/Item';
+import { ShortItemInfo } from '../_models/Item/ShortItemInfo';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +17,9 @@ export class ItemService {
     return this.http.get<item[]>(this.baseUrl + '/Items').pipe(
       map((items) => {
         if (items && Array.isArray(items) && items.length > 0) {
-          return items; // Return the array of items
+          return items;
         }
-        return []; // Return an empty array if no items are found or response is not valid
+        return []; //returnere tom array, hvis der map ikke for en item array
       })
     );
   }
@@ -34,37 +35,48 @@ export class ItemService {
     );
   }
 
+  GetAllFromUserId(id: number): Observable<ShortItemInfo[]> {
+    return this.http
+      .get<ShortItemInfo[]>(`${this.baseUrl}/Items/itemUserId/${id}`)
+      .pipe(
+        map((item) => {
+          if (item) {
+            return item;
+          }
+          throw new Error('something when wrong');
+        })
+      );
+  }
+
   CreateItem(item: CreateItem): Observable<CreateItem> {
     return this.http.post<CreateItem>(`${this.baseUrl}/item`, item).pipe(
       map((item) => {
         if (item) {
           return item;
         }
-        throw Error('Item could not be created');
+        throw new Error('Item could not be created');
       })
     );
   }
 
-
-  updateItem(item: CreateItem): Observable<CreateItem>{
-    return this.http.put<CreateItem>(`${this.baseUrl}/Items`, item).pipe(
-      map((item) =>{
-        if(item) {
+  updateItem(item: ShortItemInfo) {
+    return this.http.put<ShortItemInfo>(`${this.baseUrl}/Items`, item).pipe(
+      map((item) => {
+        if (item) {
           return item;
         }
-        throw Error('Item could not be updated');
+        throw new Error('Item could not be updated');
       })
     );
   }
 
-
-  deleteItem(id: number): Observable<number>{
+  deleteItem(id: number): Observable<number> {
     return this.http.delete<number>(`${this.baseUrl}/Items/${id}`).pipe(
-      map((item) =>{
-        if(item){
+      map((item) => {
+        if (item) {
           return item;
         }
-        throw Error('Item could not be deleted');
+        throw new Error('Item could not be deleted');
       })
     );
   }

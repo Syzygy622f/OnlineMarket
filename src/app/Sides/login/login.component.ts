@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { AccountService } from '../../_Services/account.service';
-import { userCred } from '../../_models/UserCred';
+import { userCred } from '../../_models/User/UserCred';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 

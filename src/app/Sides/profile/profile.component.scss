@@ -1,58 +1,58 @@
 body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f9fa;
-    margin: 0;
-  }
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  margin: 0;
+}
 
-  .container {
-    max-width: 900px;
-    padding: 30px;
-  }
+.container {
+  max-width: 900px;
+  padding: 30px;
+}
 
-  .profile-section {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  .profile-container {
-    display: flex;            /* Align items in a row */
-    align-items: center;      /* Vertically align items */
-    gap: 20px;                /* Space between the image and the input/button */
-  }
-  .profile-image {
-    display: flex;
-    flex-direction: column; /* Stack child elements vertically */
-    align-items: center;    /* Center-align the image and input */
-    gap: 10px;              /* Add spacing between elements */
-  }
-  .profile-image img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    background-color: #ddd;
-  }
-  .profile-image input {
-    width: 80%;         /* Make the input take up most of the container width */
-    max-width: 300px;   /* Prevent it from being too wide */
-    padding: 10px;      /* Add padding inside the input */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 5px; /* Rounded edges */
-    box-sizing: border-box; /* Ensure padding is included in width */
-  }
-  .form-section {
-    margin-top: 10px;
-  }
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.profile-container {
+  display: flex; /* Align items in a row */
+  align-items: center; /* Vertically align items */
+  gap: 20px; /* Space between the image and the input/button */
+}
+.profile-image {
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
+  align-items: center; /* Center-align the image and input */
+  gap: 10px; /* Add spacing between elements */
+}
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #ddd;
+}
+.profile-image input {
+  width: 80%; /* Make the input take up most of the container width */
+  max-width: 300px; /* Prevent it from being too wide */
+  padding: 10px; /* Add padding inside the input */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px; /* Rounded edges */
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+.form-section {
+  margin-top: 10px;
+}
 
-  .form-control {
-    font-size: 1.2rem;
-    padding: 10px;
-  }
+.form-control {
+  font-size: 1.2rem;
+  padding: 10px;
+}
 
-  button {
-    font-size: 1.2rem;
-    padding: 12px;
-  }
+button {
+  font-size: 1.2rem;
+  padding: 12px;
+}
