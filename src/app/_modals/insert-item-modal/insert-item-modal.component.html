@@ -1,17 +1,16 @@
 <div class="modal-header">
-    <h3 class="modal-title pull-left">
-      Indsæt link her
-    </h3>
-    <button
-      type="button"
-      class="btn-close close pull-right"
-      (click)="bsModalRef.hide()">
-      <span class="visually-hidden">&times;</span>
-    </button>
-  </div>
-  <form>
+  <h3 class="modal-title pull-left">Indsæt link her</h3>
+  <button
+    type="button"
+    class="btn-close close pull-right"
+    (click)="bsModalRef.hide()"
+  >
+    <span class="visually-hidden">&times;</span>
+  </button>
+</div>
+<form>
   <div class="modal-body">
-      <input type="text" placeholder="Link">
+    <input type="text" placeholder="Link" />
   </div>
   <div class="modal-footer">
     <button type="button" (click)="bsModalRef.hide()">Annuller</button>

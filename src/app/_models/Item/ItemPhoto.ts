@@ -1,5 +1,5 @@
-export interface ItemPhoto{
-    id: number;
-    url: string;
-    isMain: boolean;
+export interface ItemPhoto {
+  id: number;
+  url: string;
+  isMain: boolean;
 }

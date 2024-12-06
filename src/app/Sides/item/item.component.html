@@ -2,11 +2,17 @@
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
       <div class="Title">
-        <button class="nav-link link-light" (click)="openLinkModal()">Brug link</button>
+        <button class="nav-link link-light" (click)="openLinkModal()">
+          Brug link
+        </button>
       </div>
     </li>
     <hr />
-    <form #createItemForm="ngForm" (ngSubmit)="submitForm()" class="d-flex flex-column">
+    <form
+      #createItemForm="ngForm"
+      (ngSubmit)="submitForm()"
+      class="d-flex flex-column"
+    >
       <li>
         <div class="Title">
           <input
@@ -43,7 +49,10 @@
       </li>
       <li>
         <div class="AddImages">
-          <div *ngFor="let photo of createItem.photos; let i = index" class="mb-2">
+          <div
+            *ngFor="let photo of createItem.photos; let i = index"
+            class="mb-2"
+          >
             <input
               type="text"
               [(ngModel)]="photo.url"
@@ -59,11 +68,20 @@
               />
               Main Photo
             </label>
-            <button type="button" class="btn btn-danger btn-sm" (click)="removePhoto(i)">
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              (click)="removePhoto(i)"
+            >
               Remove
             </button>
           </div>
-          <button type="button" class="btn btn-primary btn-sm mt-2" [disabled]="createItem.photos.length >= 2" (click)="addPhoto()">
+          <button
+            type="button"
+            class="btn btn-primary btn-sm mt-2"
+            [disabled]="createItem.photos.length >= 2"
+            (click)="addPhoto()"
+          >
             Add Photo
           </button>
         </div>
@@ -71,7 +89,9 @@
       <!-- Submit and Add Ad -->
       <li>
         <div class="d-flex align-items-center justify-content-between mt-3">
-          <button class="btn btn-primary btn-sm" type="submit">Tilføj announce</button>
+          <button class="btn btn-primary btn-sm" type="submit">
+            Tilføj announce
+          </button>
         </div>
       </li>
     </form>
@@ -98,7 +118,9 @@
       </svg>
       <div *dropdownMenu class="dropdown-menu">
         <a class="dropdown-item" (click)="openEditModal(item)">Rediger</a>
-        <a class="dropdown-item" (click)="openRemoveModal(item.title, item.id)">Fjern</a>
+        <a class="dropdown-item" (click)="openRemoveModal(item.title, item.id)"
+          >Fjern</a
+        >
       </div>
     </div>
     <h5>{{ item.price }} kr</h5>

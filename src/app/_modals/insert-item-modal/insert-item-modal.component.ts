@@ -6,7 +6,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   standalone: true,
   imports: [],
   templateUrl: './insert-item-modal.component.html',
-  styleUrl: './insert-item-modal.component.scss'
+  styleUrl: './insert-item-modal.component.scss',
 })
 export class InsertItemModalComponent {
   bsModalRef = inject(BsModalRef);

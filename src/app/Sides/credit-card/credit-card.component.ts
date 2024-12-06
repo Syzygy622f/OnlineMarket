@@ -36,7 +36,7 @@ export class CreditCardComponent implements OnInit {
       const user = JSON.parse(userData); // Parse the JSON string into an object
       console.log(user.userId);
       this.model.userId = user.userId;
-      this.id= user.userId;
+      this.id = user.userId;
     }
     return null; // Return null if 'user' does not exist or is invalid
   }

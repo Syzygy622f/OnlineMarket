@@ -1,48 +1,48 @@
 .container {
   display: flex;
   flex-direction: column;
-    width: 20vw;
-    position: fixed;
-    right: 0;
-    border-bottom-left-radius: 20px;
-    overflow: auto; /* Ensure scroll if content exceeds height */
-    height: auto; /* Allow height to grow */
-  }
-  .ProductDetails{
-    height: 40vh;
-  }
-.AddAd{
-    border: solid;
-    border-radius: 20px;
-    border-color: white;
+  width: 20vw;
+  position: fixed;
+  right: 0;
+  border-bottom-left-radius: 20px;
+  overflow: auto; /* Ensure scroll if content exceeds height */
+  height: auto; /* Allow height to grow */
+}
+.ProductDetails {
+  height: 40vh;
+}
+.AddAd {
+  border: solid;
+  border-radius: 20px;
+  border-color: white;
 }
 .container .AddAd {
   display: flex;
   justify-content: flex-end; /* Align to the right side */
 }
-input::placeholder{
-    color: white;
-}
-
-textarea::placeholder{
+input::placeholder {
   color: white;
 }
-.ProductDetails textarea{
+
+textarea::placeholder {
+  color: white;
+}
+.ProductDetails textarea {
   height: 40vh;
   border: 1px white solid;
   width: 18vw;
 }
-hr{
+hr {
   color: white;
 }
-.AddAd{
- margin-top: 120px; 
+.AddAd {
+  margin-top: 120px;
 }
-button{
+button {
   font-size: 24px;
 }
-.Title input{
-font-size: 22px;
+.Title input {
+  font-size: 22px;
 }
 .AddImages {
   flex: 1;
@@ -79,7 +79,12 @@ font-size: 22px;
   left: 0;
   padding: 8px 12px;
   text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.8); /* Optional for better readability */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Optional for better readability */
   z-index: 2;
 }
 

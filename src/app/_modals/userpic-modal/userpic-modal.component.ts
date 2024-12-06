@@ -6,7 +6,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   standalone: true,
   imports: [],
   templateUrl: './userpic-modal.component.html',
-  styleUrl: './userpic-modal.component.scss'
+  styleUrl: './userpic-modal.component.scss',
 })
 export class UserpicModalComponent {
   bsModalRef = inject(BsModalRef);

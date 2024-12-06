@@ -1,4 +1,4 @@
-export class userCred{
-    Mail: string = '';
-    Password:string = '';
+export class userCred {
+  Mail: string = '';
+  Password: string = '';
 }

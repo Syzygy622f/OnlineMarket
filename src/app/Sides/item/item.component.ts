@@ -19,7 +19,7 @@ import { EditItem } from '../../_models/Item/EditItem';
   templateUrl: './item.component.html',
   styleUrl: './item.component.scss',
 })
-export class ItemComponent implements OnInit{
+export class ItemComponent implements OnInit {
   private itemService = inject(ItemService);
   private modalService = inject(BsModalService);
   bsEditModalRef: BsModalRef<EditItemComponent> =
@@ -29,12 +29,11 @@ export class ItemComponent implements OnInit{
   bsLinkModalRef: BsModalRef<InsertItemModalComponent> =
     new BsModalRef<InsertItemModalComponent>();
 
-private toastr = inject(ToastrService);
+  private toastr = inject(ToastrService);
   Items: ShortItemInfo[] = [];
   item: EditItem | null = null;
   createItem: CreateItem = new CreateItem();
   id: number = 0;
-
 
   ngOnInit(): void {
     this.getId();
@@ -52,23 +51,22 @@ private toastr = inject(ToastrService);
     return null; // Return null if 'user' does not exist or is invalid
   }
 
-GetAllFromUserId(){
-  this.itemService.GetAllFromUserId(this.id).subscribe({
-    next: response => {
-      this.Items = response;
-    },
-    error: (error) => this.toastr.error(error.error)
-  })
-}
-
-getMainPhoto(photos: ItemPhoto[]): string {
-  if (!photos || photos.length === 0) {
-    return 'path/to/default/image.jpg'; // Fallback image
+  GetAllFromUserId() {
+    this.itemService.GetAllFromUserId(this.id).subscribe({
+      next: (response) => {
+        this.Items = response;
+      },
+      error: (error) => this.toastr.error(error.error),
+    });
   }
-  const mainPhoto = photos.find(photo => photo.isMain);
-  return mainPhoto ? mainPhoto.url : 'path/to/default/image.jpg';
-}
 
+  getMainPhoto(photos: ItemPhoto[]): string {
+    if (!photos || photos.length === 0) {
+      return 'path/to/default/image.jpg'; // Fallback image
+    }
+    const mainPhoto = photos.find((photo) => photo.isMain);
+    return mainPhoto ? mainPhoto.url : 'path/to/default/image.jpg';
+  }
 
   addPhoto(): void {
     this.createItem.photos.push({ id: 0, url: '', isMain: false }); // Add a new ItemPhoto
@@ -83,7 +81,7 @@ getMainPhoto(photos: ItemPhoto[]): string {
       next: () => {
         console.log(this.createItem);
       },
-      error: (error) =>  this.toastr.error(error.error),
+      error: (error) => this.toastr.error(error.error),
     });
   }
 

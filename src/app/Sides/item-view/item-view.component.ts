@@ -28,17 +28,12 @@ export class ItemViewComponent implements OnInit {
     this.isBrowser = isPlatformBrowser(this.platformId);
     console.log('isBrowser:', this.isBrowser);
 
-
     //bliver brugt til at hente id fra items i home component
     this.route.params.subscribe((params) => {
       const id = params['id'];
       console.log('Retrieved ID:', id);
       this.get(id); // bruger id til at hente announce fra metoden get
     });
-
-    
-
-
   }
 
   get(id: number) {
@@ -56,8 +51,7 @@ export class ItemViewComponent implements OnInit {
     if (userstring) {
       const user = JSON.parse(userstring);
       if (user && user.mail) {
-        this.savelist.userId = user.userId,
-        this.savelist.itemId = id
+        (this.savelist.userId = user.userId), (this.savelist.itemId = id);
       }
 
       this.userService.addToSaveList(this.savelist).subscribe({

@@ -9,6 +9,4 @@ import { UserService } from '../../_Services/user.service';
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
 })
-export class AccountComponent {
-
-}
+export class AccountComponent {}

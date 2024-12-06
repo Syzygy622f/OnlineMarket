@@ -1,40 +1,41 @@
 .container {
-    width: 400px;
-    height: 95vh;
-    position: fixed;
-    right: 0;
-  }
-  .search {
-    border-radius: 45px;
-  }
-  
-  hr{
-      color: white;
-  }
+  width: 400px;
+  height: 95vh;
+  position: fixed;
+  right: 0;
+}
+.search {
+  border-radius: 45px;
+}
 
-  .ProductDetails{
-    border: solid;
-    border-color: white;
-    height: 50vh;
-  }
-  .Save svg{
-    width: 30px;
-    color: white;
-    height: auto;
-  }
-  :host ::ng-deep .carousel-control-prev-icon,
-  :host ::ng-deep .carousel-control-next-icon {
-    background-color: #007bff; /* Blue background */
-    width: 40px;
-    height: 40px;
-  }
+hr {
+  color: white;
+}
 
-  .carousel-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 40px); // Allows for slight padding if necessary
-    width: calc(100vw - 410px); // Subtract the `.container` width to fit the rest of the space
-    background-color: #222; // Optional: background color for clarity
-  }
-  
+.ProductDetails {
+  border: solid;
+  border-color: white;
+  height: 50vh;
+}
+.Save svg {
+  width: 30px;
+  color: white;
+  height: auto;
+}
+:host ::ng-deep .carousel-control-prev-icon,
+:host ::ng-deep .carousel-control-next-icon {
+  background-color: #007bff; /* Blue background */
+  width: 40px;
+  height: 40px;
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 40px); // Allows for slight padding if necessary
+  width: calc(
+    100vw - 410px
+  ); // Subtract the `.container` width to fit the rest of the space
+  background-color: #222; // Optional: background color for clarity
+}

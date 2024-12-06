@@ -6,16 +6,26 @@
       dit Kredit kort
     </h2>
   </div>
-  <!--gør brug af if statement for nu div-->
-  <!--<div class="title"><h2>Du har registeret dig til at kunne sælge</h2></div>-->
   <div class="linked-cards" *ngIf="ShowCards">
     <h3>Allerede linkede kort:</h3>
     <ul>
       <li *ngFor="let card of ShowCards" class="card-item">
         Card ending in {{ card.cardNumber }}
-        <svg (click)="OpenDeleteCardModal(card.id, card.cardNumber)" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-        </svg>        
+        <svg
+          (click)="OpenDeleteCardModal(card.id, card.cardNumber)"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18 18 6M6 6l12 12"
+          />
+        </svg>
       </li>
     </ul>
   </div>

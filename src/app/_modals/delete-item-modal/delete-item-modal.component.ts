@@ -7,7 +7,7 @@ import { ItemService } from '../../_Services/item.service';
   standalone: true,
   imports: [],
   templateUrl: './delete-item-modal.component.html',
-  styleUrl: './delete-item-modal.component.scss'
+  styleUrl: './delete-item-modal.component.scss',
 })
 export class DeleteItemModalComponent {
   bsModalRef = inject(BsModalRef);
@@ -15,18 +15,11 @@ export class DeleteItemModalComponent {
   id: number = 0;
   private itemService = inject(ItemService);
 
-
-
-
   onDeleteItem(): void {
     this.itemService.deleteItem(this.id).subscribe({
       next: () => {
         console.log('success');
-      }
+      },
     });
   }
-
-
-
-
 }

@@ -4,7 +4,6 @@ import { map, Observable } from 'rxjs';
 import { CreateItem } from '../_models/Item/CreateItem';
 import { item } from '../_models/Item/Item';
 import { ShortItemInfo } from '../_models/Item/ShortItemInfo';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -59,13 +58,13 @@ export class ItemService {
     );
   }
 
-  updateItem(item: ShortItemInfo) {
+  updateItem(item: ShortItemInfo): Observable<ShortItemInfo> {
     return this.http.put<ShortItemInfo>(`${this.baseUrl}/Items`, item).pipe(
-      map((item) => {
-        if (item) {
-          return item;
+      map((v) => {
+        if (v) {
+          return v;
         }
-        throw new Error('Item could not be updated');
+        throw new Error('useles problem');
       })
     );
   }
