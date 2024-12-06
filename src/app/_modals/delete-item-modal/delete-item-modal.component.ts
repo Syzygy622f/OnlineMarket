@@ -19,6 +19,7 @@ export class DeleteItemModalComponent {
     this.itemService.deleteItem(this.id).subscribe({
       next: () => {
         console.log('success');
+        this.bsModalRef.hide();
       },
     });
   }

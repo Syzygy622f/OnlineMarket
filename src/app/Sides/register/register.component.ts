@@ -1,10 +1,11 @@
-import { Component, inject, NgModule } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { UserpicModalComponent } from '../../_modals/userpic-modal/userpic-modal.component';
 import { AccountService } from '../../_Services/account.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { userreg } from '../../_models/User/UserReg';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,7 @@ import { userreg } from '../../_models/User/UserReg';
 export class RegisterComponent {
   private modalService = inject(BsModalService);
   private accountService = inject(AccountService);
-  //private router = inject(Router);
+  private router = inject(Router);
   bsModalRef: BsModalRef<UserpicModalComponent> =
     new BsModalRef<UserpicModalComponent>();
   model: userreg = new userreg();
@@ -30,8 +31,7 @@ export class RegisterComponent {
 
     this.accountService.register(this.model).subscribe({
       next: () => {
-        console.log(this.model);
-        //this.router.navigate(['/']);
+        this.router.navigate(['/']);
       },
       error: (error) => console.log(this.model),
     });
