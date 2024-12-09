@@ -8,10 +8,11 @@ import { AccountComponent } from './Sides/account/account.component';
 import { ProfileComponent } from './Sides/profile/profile.component';
 import { CreditCardComponent } from './Sides/credit-card/credit-card.component';
 import { SavedItemsComponent } from './Sides/saved-items/saved-items.component';
+import { sellerGuard } from './_guards/seller.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'Items', component: ItemComponent },
+  { path: 'Items', component: ItemComponent, canActivate: [sellerGuard]},
   {
     path: 'Account',
     component: AccountComponent,

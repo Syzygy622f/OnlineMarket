@@ -29,17 +29,23 @@ export class HomeComponent implements OnInit {
   minValue: number = 0; // Default min value
   maxValue: number = 100; // Default max value
   items: item[] = [];
+  loading: boolean = false; // Loading flag
 
   ngOnInit(): void {
     this.getall();
   }
 
   getall() {
+    this.loading = true; // Start the loader
     this.itemService.getAll().subscribe({
       next: (response) => {
         this.items = response;
+        this.loading = false; // Stop the loader
       },
-      error: (error) => console.log(error.error),
+      error: (error) => {
+        console.log(error.error);
+        this.loading = false; // Stop the loader even if there's an error
+      },
     });
   }
 

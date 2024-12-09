@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { catchError, map, throwError } from 'rxjs';
 import { userreg } from '../_models/User/UserReg';
 import { userCred } from '../_models/User/UserCred';
@@ -12,6 +12,15 @@ export class AccountService {
   private http = inject(HttpClient);
   baseUrl = 'https://localhost:7255';
   CurrentUser = signal<UserToken | null>(null);
+  roles = computed(()=> {
+    const user = this.CurrentUser();
+    if(user && user.token){
+      const role = JSON.parse(atob(user.token.split('.')[1])).role
+return Array.isArray(role) ? role : [role];
+    }
+    return [];
+  })
+
 
   register(model: userreg) {
     return this.http.post<UserToken>(this.baseUrl + `/authUser/Register`, model).pipe(

@@ -30,12 +30,12 @@
         <div dropdown class="nav-item dropdown">
           <a dropdownToggle class="dropdown-toggle text-light">welcome user</a>
           <div *dropdownMenu class="dropdown-menu">
-            <a class="dropdown-item">navn</a>
-            <a routerLink="/Account" class="dropdown-item">Indstillinger</a>
-            <a routerLink="/Items" class="dropdown-item">Produkter</a>
-            <a routerLink="/Register" class="dropdown-item">Register</a>
-            <a routerLink="/Login" class="dropdown-item">Login</a>
-            <a class="dropdown-item" (click)="logout()">logout</a>
+            <a *ngIf="accountService.CurrentUser()" class="dropdown-item">navn</a>
+            <a *ngIf="accountService.CurrentUser()" routerLink="/Account" class="dropdown-item">Indstillinger</a>
+            <a *appHasRole="['User', 'Seller']" routerLink="/Items" class="dropdown-item">Produkter</a>
+            <a *ngIf="!accountService.CurrentUser()" routerLink="/Register" class="dropdown-item">Register</a>
+            <a *ngIf="!accountService.CurrentUser()" routerLink="/Login" class="dropdown-item">Login</a>
+            <a *ngIf="accountService.CurrentUser()" class="dropdown-item" (click)="logout()">logout</a>
           </div>
         </div>
       </ul>

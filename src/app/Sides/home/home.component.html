@@ -62,8 +62,15 @@
   </ul>
 </div>
 <div class="mainContainer">
-  <div class="row">
-    <div
+
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="items && items.length > 0; else noItems">
+    <div 
       class="col-12 col-sm-6 col-md-1 col-lg-2"
       style="max-width: 19.8%"
       *ngFor="let item of items"
@@ -80,4 +87,9 @@
       </div>
     </div>
   </div>
+  <ng-template #noItems>
+    <div class="text-center">
+      <p>No items available.</p>
+    </div>
+  </ng-template>
 </div>
