@@ -16,7 +16,7 @@
           Fornavn is required.
         </div>
       </div>
-      
+
       <div class="input-group mb-3 flex-column">
         <label class="form-label">Efternavn</label>
         <input
@@ -31,7 +31,7 @@
           Efternavn is required.
         </div>
       </div>
-      
+
       <div class="input-group mb-3 flex-column">
         <label class="form-label">Mail</label>
         <input
@@ -46,7 +46,7 @@
           A valid email is required.
         </div>
       </div>
-      
+
       <div class="input-group mb-3 flex-column">
         <label class="form-label">Password</label>
         <input
@@ -60,7 +60,7 @@
         <div *ngIf="password.invalid && password.touched" class="text-danger">
           Password is required.
         </div>
-      </div>   
+      </div>
       <div class="input-group mb-3 flex-column">
         <label class="form-label">Gentag Password</label>
         <input
@@ -75,7 +75,7 @@
           Passwords do not match.
         </div>
       </div>
-      
+
       <div class="input-group mb-3 flex-column">
         <label class="form-label">Fødselsdato</label>
         <input
@@ -86,11 +86,14 @@
           required
           #dateOfBirth="ngModel"
         />
-        <div *ngIf="dateOfBirth.invalid && dateOfBirth.touched" class="text-danger">
+        <div
+          *ngIf="dateOfBirth.invalid && dateOfBirth.touched"
+          class="text-danger"
+        >
           Fødselsdato is required.
         </div>
       </div>
-      
+
       <!-- Living Group with 60/40 ratio -->
       <div class="row mb-3 livingGroup">
         <div class="col-7">
@@ -122,7 +125,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Address -->
       <div class="input-group mb-3 flex-column">
         <label class="form-label">Addresse og vejnummer</label>
@@ -139,7 +142,9 @@
         </div>
       </div>
       <!-- Register Button -->
-      <button class="btn btn-primary w-100" [disabled]="registerForm.invalid">Register</button>
+      <button class="btn btn-primary w-100" [disabled]="registerForm.invalid">
+        Register
+      </button>
     </form>
   </div>
 </div>
