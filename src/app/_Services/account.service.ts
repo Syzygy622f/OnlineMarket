@@ -50,7 +50,7 @@ export class AccountService {
           console.log("Full error object:", error);
         
           if (error.status === 401) {
-            // Handle plain text error response from backend
+            // tjekker på fejl status 401, for at kunne sende den response til component.ts
             const errorMessage = error.error || "Invalid email or password";
             return throwError(() => ({
               status: 401,
@@ -58,7 +58,7 @@ export class AccountService {
             }));
           }
         
-          // Rethrow other errors as-is
+          // kaster alle andre fejl, som response tilbage
           return throwError(() => error);
         }),
       );
