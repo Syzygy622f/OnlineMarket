@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { map } from 'rxjs';
+import { catchError, map, throwError } from 'rxjs';
 import { userreg } from '../_models/User/UserReg';
 import { userCred } from '../_models/User/UserCred';
 import { UserToken } from '../_models/User/userToke';
@@ -14,16 +14,26 @@ export class AccountService {
   CurrentUser = signal<UserToken | null>(null);
 
   register(model: userreg) {
-    return this.http
-      .post<UserToken>(this.baseUrl + `/authUser/Register`, model)
-      .pipe(
-        map((user) => {
-          if (user) {
-            localStorage.setItem('user', JSON.stringify(user));
-            this.CurrentUser.set(user);
+    return this.http.post<UserToken>(this.baseUrl + `/authUser/Register`, model).pipe(
+      map((user) => {
+        if (user) {
+          localStorage.setItem('user', JSON.stringify(user));
+          this.CurrentUser.set(user);
+        }
+      }),
+      catchError((error) => {
+        if (error.status === 400 && error.error.errors) {
+          const errorMessages = error.error.errors;
+      
+          if (errorMessages.includes("Username is taken") || errorMessages.includes("Email is already taken")) {
+            return throwError(() => new Error("Username or email is already taken."));
           }
-        })
-      );
+        }
+      
+        // Rethrow other errors
+        return throwError(() => error);
+      })
+    );
   }
 
   login(model: userCred) {
@@ -35,7 +45,22 @@ export class AccountService {
             localStorage.setItem('user', JSON.stringify(user));
             this.CurrentUser.set(user);
           }
-        })
+        }),
+        catchError((error) => {
+          console.log("Full error object:", error);
+        
+          if (error.status === 401) {
+            // Handle plain text error response from backend
+            const errorMessage = error.error || "Invalid email or password";
+            return throwError(() => ({
+              status: 401,
+              message: errorMessage,
+            }));
+          }
+        
+          // Rethrow other errors as-is
+          return throwError(() => error);
+        }),
       );
   }
 

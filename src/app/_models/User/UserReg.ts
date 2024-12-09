@@ -4,7 +4,6 @@ export class userreg {
   dateOfBirth: Date = new Date();
   password: string = '';
   mail: string = '';
-  url?: string = '';
   city?: string;
   postCode?: number;
   address?: string;

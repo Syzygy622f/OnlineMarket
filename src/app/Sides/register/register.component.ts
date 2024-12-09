@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { userreg } from '../../_models/User/UserReg';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -20,22 +21,39 @@ export class RegisterComponent {
   private router = inject(Router);
   bsModalRef: BsModalRef<UserpicModalComponent> =
     new BsModalRef<UserpicModalComponent>();
+    private toastr = inject(ToastrService)
   model: userreg = new userreg();
 
+
+  ngmodel = {
+    password: '',
+    confirmPassword: '',
+  };
+  passwordMismatch = false;
+
+
+
   register() {
-    const date = new Date(this.model.dateOfBirth);
+    if (!this.passwordMismatch) {
+      const date = new Date(this.model.dateOfBirth);
 
-    date.setHours(date.getHours() + 3);
-
-    this.model.dateOfBirth = date;
-
-    this.accountService.register(this.model).subscribe({
-      next: () => {
-        this.router.navigate(['/']);
-      },
-      error: (error) => console.log(this.model),
-    });
+      date.setHours(date.getHours() + 3);
+  
+      this.model.dateOfBirth = date;
+  
+      this.accountService.register(this.model).subscribe({
+        next: () => {
+          this.router.navigate(['/']);
+        },
+        error: (error) => this.toastr.error(error.error),
+      });
+    }
   }
+
+  checkPasswords(password: string, confirmPassword: string): void {
+    this.passwordMismatch = password !== confirmPassword;
+  }
+
 
   openModal() {
     const initialState: ModalOptions = {
