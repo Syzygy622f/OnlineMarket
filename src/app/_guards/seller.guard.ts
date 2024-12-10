@@ -8,8 +8,8 @@ export const sellerGuard: CanActivateFn = (route, state) => {
   const toastr = inject(ToastrService);
 
 
-  if (accountService.roles().includes('User') || accountService.roles().includes('Seller')) {
-    return true
+  if (accountService.roles().includes("Seller") || accountService.roles().includes("User")) {
+    return true;
   } else{
     toastr.error('du bruge ikke være her');
     return false;

@@ -13,24 +13,30 @@
       />
     </li>
     <li>
-      <div class="slider-container">
-        <div>
-          <label for="minValue">Min:</label>
+      <div class="priceAdjuster-container">
+        <div class="filterinput d-flex justify-content-between align-items-center mb-3">
+          <label class="text-white">Min:</label>
           <input
             id="minValue"
+            class="form-label"
             type="number"
             [(ngModel)]="minValue"
-            (input)="onInputChange()"
           />
-        </div>
-        <div>
-          <label for="maxValue">Max:</label>
+          <label class="text-white">Max:</label>
           <input
             id="maxValue"
+            class="form-label"
             type="number"
             [(ngModel)]="maxValue"
-            (input)="onInputChange()"
           />
+        </div>
+        <div class="filterbuttons">
+          <button class="btn btn-primary me-2" (click)="applyFilter()">
+            Filter Items
+          </button>
+          <button class="btn btn-primary" (click)="resetFilter()">
+            Reset Filter
+          </button>
         </div>
       </div>
     </li>
@@ -62,7 +68,6 @@
   </ul>
 </div>
 <div class="mainContainer">
-
   <div *ngIf="loading" class="text-center">
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Loading...</span>
@@ -70,10 +75,11 @@
   </div>
 
   <div class="row" *ngIf="items && items.length > 0; else noItems">
-    <div 
+    <div
       class="col-12 col-sm-6 col-md-1 col-lg-2"
       style="max-width: 19.8%"
       *ngFor="let item of items"
+      [hidden]="!filterItems(item)"
     >
       <div class="card" routerLink="/ViewItem/{{ item.id }}">
         <img

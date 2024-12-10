@@ -37,7 +37,6 @@ export class ItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.getId();
-    this.GetAllFromUserId();
   }
 
   getId() {
@@ -46,13 +45,14 @@ export class ItemComponent implements OnInit {
       const user = JSON.parse(userData); // Parse the JSON string into an object
       console.log(user.userId);
       this.createItem.userId = user.userId;
+      this.GetAllFromUserId(user.userId);
       this.id = user.userId;
     }
     return null; // Return null if 'user' does not exist or is invalid
   }
 
-  GetAllFromUserId() {
-    this.itemService.GetAllFromUserId(this.id).subscribe({
+  GetAllFromUserId(id: number) {
+    this.itemService.GetAllFromUserId(id).subscribe({
       next: (response) => {
         this.Items = response;
       },

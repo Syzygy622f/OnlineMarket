@@ -71,3 +71,21 @@ hr {
   padding: 8px 12px;
   text-decoration: none;
 }
+
+.priceAdjuster-container{
+  margin-top: 10px;
+}
+
+
+.filterbuttons{
+  margin-top: 10px;
+}
+
+.filterinput input{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  justify-content: space-evenly;
+  border-radius: 20px;
+}

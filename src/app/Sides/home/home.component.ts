@@ -27,9 +27,10 @@ import { item } from '../../_models/Item/Item';
 export class HomeComponent implements OnInit {
   private itemService = inject(ItemService);
   minValue: number = 0; // Default min value
-  maxValue: number = 100; // Default max value
+  maxValue: number = 0; // Default max value
   items: item[] = [];
   loading: boolean = false; // Loading flag
+  isFilterEnabled: boolean = false; // Track whether filtering is active
 
   ngOnInit(): void {
     this.getall();
@@ -57,7 +58,22 @@ export class HomeComponent implements OnInit {
     return mainPhoto ? mainPhoto.url : 'path/to/default/image.jpg';
   }
 
-  onInputChange(): void {
-    // Ensure the slider value is within the updated range
+  filterItems(item: item): boolean {
+    if (!this.isFilterEnabled) {
+      return true; // Show all items when filtering is disabled
+    }
+    const meetsMin = item.price >= this.minValue;
+    const meetsMax = item.price <= this.maxValue;
+    return meetsMin && meetsMax;
+  }
+
+  applyFilter() {
+    this.isFilterEnabled = true; // Enable the filter
+  }
+
+  resetFilter() {
+    this.isFilterEnabled = false; // Disable the filter
+    this.minValue = 0;
+    this.maxValue = 0;
   }
 }

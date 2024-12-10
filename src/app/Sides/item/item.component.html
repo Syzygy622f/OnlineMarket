@@ -21,7 +21,12 @@
             name="title"
             placeholder="Titel"
             class="nav-link link-light"
+            required
+            #title="ngModel"
           />
+          <div *ngIf="title.invalid && title.touched" class="text-danger">
+            Title is required.
+          </div>
         </div>
       </li>
       <li>
@@ -32,7 +37,13 @@
             name="price"
             placeholder="Pris"
             class="nav-link link-light"
+            required
+            #price="ngModel"
+            min="0"
           />
+          <div *ngIf="price.invalid && price.touched" class="text-danger">
+            Price is required and must be a positive number.
+          </div>
         </div>
       </li>
       <li>
@@ -59,7 +70,12 @@
               [name]="'photoUrl' + i"
               placeholder="Enter image URL"
               class="nav-link link-light mb-1"
+              required
+              #photoUrl="ngModel"
             />
+            <div *ngIf="photoUrl.invalid && photoUrl.touched" class="text-danger">
+              Photo URL is required.
+            </div>
             <label>
               <input
                 type="checkbox"
@@ -84,12 +100,19 @@
           >
             Add Photo
           </button>
+          <div *ngIf="createItem.photos.length < 1" class="text-danger">
+            At least one photo is required.
+          </div>
         </div>
       </li>
       <!-- Submit and Add Ad -->
       <li>
         <div class="d-flex align-items-center justify-content-between mt-3">
-          <button class="btn btn-primary btn-sm" type="submit">
+          <button
+            class="btn btn-primary btn-sm"
+            type="submit"
+            [disabled]="createItemForm.invalid || createItem.photos.length < 1"
+          >
             Tilføj announce
           </button>
         </div>

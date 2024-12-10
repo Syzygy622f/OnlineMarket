@@ -60,7 +60,7 @@ export class UserService {
         if (card) {
           return card;
         }
-        throw new Error('couldnt get credit cards');
+        return [];
       })
     );
   }
@@ -95,7 +95,7 @@ export class UserService {
           if (list) {
             return list;
           }
-          throw new Error('something went wrong');
+          return[]
         })
       );
   }

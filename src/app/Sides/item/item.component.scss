@@ -47,20 +47,24 @@ button {
 .AddImages {
   flex: 1;
 }
+
 .mainContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(5, 200px); /* 5 columns, each 200px wide */
   padding-top: 60px;
-  padding-left: 340px;
+  padding-right: 400px;
+  gap: 60px; /* Spacing between cards */
+  justify-content: center; /* Optional: Centers the grid in the container */
 }
 
 .card {
-  position: relative;
+position: relative;
   border: 1px solid black;
   height: 200px;
   width: 200px;
+  margin: 0; /* Remove additional margin */
   overflow: hidden;
+  box-sizing: border-box; /* Includes padding/border in width calculation */
 }
 
 .card img {

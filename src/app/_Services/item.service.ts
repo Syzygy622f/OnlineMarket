@@ -42,7 +42,7 @@ export class ItemService {
           if (item) {
             return item;
           }
-          throw new Error('something when wrong');
+          return [];
         })
       );
   }
