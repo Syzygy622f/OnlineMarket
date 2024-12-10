@@ -1,9 +1,12 @@
 .card-container {
   display: flex;
   justify-content: center; /* Center card horizontally */
-  align-items: center; /* Center card vertically */
-  height: 100vh; /* Full height of viewport */
+  align-items: flex-start; /* Align cards to the top of the container */
+  min-height: 100vh; /* Minimum height of the viewport */
   background-color: #121212; /* Optional dark background for contrast */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 20px; /* Add padding for better spacing around the card */
+  box-sizing: border-box; /* Ensure padding doesn't affect width calculations */
 }
 
 .card {

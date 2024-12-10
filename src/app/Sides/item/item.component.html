@@ -1,124 +1,129 @@
-<div class="container d-flex flex-column flex-shrink-0 p-3 bg-dark">
-  <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <div class="Title">
-        <button class="nav-link link-light" (click)="openLinkModal()">
-          Brug link
-        </button>
-      </div>
-    </li>
-    <hr />
-    <form
-      #createItemForm="ngForm"
-      (ngSubmit)="submitForm()"
-      class="d-flex flex-column"
-    >
-      <li>
+<div class="container bg-dark">
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
         <div class="Title">
-          <input
-            type="text"
-            [(ngModel)]="createItem.title"
-            name="title"
-            placeholder="Titel"
-            class="nav-link link-light"
-            required
-            #title="ngModel"
-          />
-          <div *ngIf="title.invalid && title.touched" class="text-danger">
-            Title is required.
-          </div>
+          <button class="nav-link link-light" (click)="openLinkModal()">
+            Brug link
+          </button>
         </div>
       </li>
-      <li>
-        <div class="Price">
-          <input
-            type="number"
-            [(ngModel)]="createItem.price"
-            name="price"
-            placeholder="Pris"
-            class="nav-link link-light"
-            required
-            #price="ngModel"
-            min="0"
-          />
-          <div *ngIf="price.invalid && price.touched" class="text-danger">
-            Price is required and must be a positive number.
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="ProductDetails">
-          <textarea
-            [(ngModel)]="createItem.description"
-            name="description"
-            placeholder="Beskrivelse"
-            class="nav-link link-light"
-            rows="4"
-            style="resize: vertical"
-          ></textarea>
-        </div>
-      </li>
-      <li>
-        <div class="AddImages">
-          <div
-            *ngFor="let photo of createItem.photos; let i = index"
-            class="mb-2"
-          >
+      <hr class="text-light" />
+      <form
+        #createItemForm="ngForm"
+        (ngSubmit)="submitForm()"
+        class="d-flex flex-column"
+      >
+        <li>
+          <div class="Title">
             <input
               type="text"
-              [(ngModel)]="photo.url"
-              [name]="'photoUrl' + i"
-              placeholder="Enter image URL"
-              class="nav-link link-light mb-1"
+              [(ngModel)]="createItem.title"
+              name="title"
+              placeholder="Titel"
+              class="nav-link link-light"
               required
-              #photoUrl="ngModel"
+              #title="ngModel"
             />
-            <div *ngIf="photoUrl.invalid && photoUrl.touched" class="text-danger">
-              Photo URL is required.
+            <div *ngIf="title.invalid && title.touched" class="text-danger">
+              Title is required.
             </div>
-            <label>
+          </div>
+        </li>
+        <li>
+          <div class="Price">
+            <input
+              type="number"
+              [(ngModel)]="createItem.price"
+              name="price"
+              placeholder="Pris"
+              class="nav-link link-light"
+              required
+              #price="ngModel"
+              min="0"
+            />
+            <div *ngIf="price.invalid && price.touched" class="text-danger">
+              Price is required and must be a positive number.
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="ProductDetails">
+            <textarea
+              [(ngModel)]="createItem.description"
+              name="description"
+              placeholder="Beskrivelse"
+              class="nav-link link-light"
+              rows="4"
+              style="resize: vertical"
+            ></textarea>
+          </div>
+        </li>
+        <li>
+          <div class="AddImages">
+            <div
+              *ngFor="let photo of createItem.photos; let i = index"
+              class="mb-2"
+            >
               <input
-                type="checkbox"
-                [(ngModel)]="photo.isMain"
-                [name]="'isMain' + i"
+                type="text"
+                [(ngModel)]="photo.url"
+                [name]="'photoUrl' + i"
+                placeholder="Enter image URL"
+                class="nav-link link-light mb-1"
+                required
+                #photoUrl="ngModel"
               />
-              Main Photo
-            </label>
+              <div
+                *ngIf="photoUrl.invalid && photoUrl.touched"
+                class="text-danger"
+              >
+                Photo URL is required.
+              </div>
+              <label>
+                <input
+                  type="checkbox"
+                  [(ngModel)]="photo.isMain"
+                  [name]="'isMain' + i"
+                />
+                Main Photo
+              </label>
+              <button
+                type="button"
+                class="btn btn-danger btn-sm"
+                (click)="removePhoto(i)"
+              >
+                Remove
+              </button>
+            </div>
             <button
               type="button"
-              class="btn btn-danger btn-sm"
-              (click)="removePhoto(i)"
+              class="btn btn-primary btn-sm mt-2"
+              [disabled]="createItem.photos.length >= 2"
+              (click)="addPhoto()"
             >
-              Remove
+              Add Photo
+            </button>
+            <div *ngIf="createItem.photos.length < 1" class="text-danger">
+              At least one photo is required.
+            </div>
+          </div>
+        </li>
+        <!-- Submit and Add Ad -->
+        <li>
+          <div class="d-flex align-items-center justify-content-between mt-3">
+            <button
+              class="btn btn-primary btn-sm"
+              type="submit"
+              [disabled]="
+                createItemForm.invalid || createItem.photos.length < 1
+              "
+            >
+              Tilføj announce
             </button>
           </div>
-          <button
-            type="button"
-            class="btn btn-primary btn-sm mt-2"
-            [disabled]="createItem.photos.length >= 2"
-            (click)="addPhoto()"
-          >
-            Add Photo
-          </button>
-          <div *ngIf="createItem.photos.length < 1" class="text-danger">
-            At least one photo is required.
-          </div>
-        </div>
-      </li>
-      <!-- Submit and Add Ad -->
-      <li>
-        <div class="d-flex align-items-center justify-content-between mt-3">
-          <button
-            class="btn btn-primary btn-sm"
-            type="submit"
-            [disabled]="createItemForm.invalid || createItem.photos.length < 1"
-          >
-            Tilføj announce
-          </button>
-        </div>
-      </li>
-    </form>
-  </ul>
+        </li>
+      </form>
+    </ul>
 </div>
 
 <div class="mainContainer">

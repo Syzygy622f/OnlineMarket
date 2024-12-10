@@ -89,3 +89,24 @@ hr {
   justify-content: space-evenly;
   border-radius: 20px;
 }
+
+
+@media screen and (max-width: 1280px) and (max-height: 585px) {
+  .mainContainer {
+    padding-left: 300px; // Adjust padding for smaller width
+    padding-top: 40px; // Adjust padding for smaller height
+  }
+
+  .mainContainer .row {
+    gap: 1rem; // Increase spacing between items for better alignment
+  }
+
+  .card {
+    height: 180px; // Adjust card height for the viewport
+    width: 180px; // Adjust card width for the viewport
+  }
+
+  .card h5 {
+    padding: 6px 10px; // Slightly reduce padding for smaller cards
+  }
+}

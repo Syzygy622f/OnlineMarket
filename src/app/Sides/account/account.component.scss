@@ -14,5 +14,9 @@ h2 {
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  height: 94vh; /* Take up the full height of the viewport */
+  height: 93vh; /* Take up most of the viewport height */
+  margin-left: 280px; /* Leave space for the fixed container */
+  overflow: auto; /* Prevent content from scrolling or overflowing */
+  box-sizing: border-box; /* Include padding and borders in dimensions */
+  flex-wrap: nowrap; /* Prevent wrapping of children if using flexbox */
 }

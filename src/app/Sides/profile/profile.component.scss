@@ -56,3 +56,34 @@ button {
   font-size: 1.2rem;
   padding: 12px;
 }
+
+@media screen and (max-width: 1366px) {
+  .container {
+    max-width: 650px; /* Even smaller container for laptops */
+    padding: 15px;
+  }
+
+  .profile-container {
+    gap: 10px; /* Tightened spacing */
+  }
+
+  .form-control {
+    font-size: 0.9rem; /* Further reduced font size */
+    padding: 6px;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .profile-image img {
+    width: 90px; /* Smaller profile image */
+    height: 90px;
+  }
+
+  .profile-image input {
+    width: 100%; /* Full width on smaller screens */
+    max-width: none; /* No max width restriction */
+  }
+}

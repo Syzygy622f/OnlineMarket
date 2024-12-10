@@ -1,25 +1,15 @@
+
 .container {
   display: flex;
-  flex-direction: column;
   width: 20vw;
   position: fixed;
   right: 0;
   border-bottom-left-radius: 20px;
-  overflow: auto; /* Ensure scroll if content exceeds height */
-  height: auto; /* Allow height to grow */
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 100vh; /* Restrict height to the full viewport height */
+  background-color: #333; /* Matches the dark theme */
 }
-.ProductDetails {
-  height: 40vh;
-}
-.AddAd {
-  border: solid;
-  border-radius: 20px;
-  border-color: white;
-}
-.container .AddAd {
-  display: flex;
-  justify-content: flex-end; /* Align to the right side */
-}
+
 input::placeholder {
   color: white;
 }
@@ -28,16 +18,9 @@ textarea::placeholder {
   color: white;
 }
 .ProductDetails textarea {
-  height: 40vh;
   border: 1px white solid;
-  width: 18vw;
 }
-hr {
-  color: white;
-}
-.AddAd {
-  margin-top: 120px;
-}
+
 button {
   font-size: 24px;
 }
@@ -49,20 +32,19 @@ button {
 }
 
 .mainContainer {
+  flex: 1; /* Allow this container to grow and fill the remaining space */
   display: grid;
-  grid-template-columns: repeat(5, 200px); /* 5 columns, each 200px wide */
-  padding-top: 60px;
-  padding-right: 400px;
-  gap: 60px; /* Spacing between cards */
-  justify-content: center; /* Optional: Centers the grid in the container */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+  padding: 20px;
+  gap: 20px; /* Space between cards */
+  margin-right: 20vw; /* Account for the fixed .container width */
+  overflow: auto; /* Enable scrolling if content exceeds height */
 }
 
 .card {
-position: relative;
-  border: 1px solid black;
+  position: relative;
   height: 200px;
   width: 200px;
-  margin: 0; /* Remove additional margin */
   overflow: hidden;
   box-sizing: border-box; /* Includes padding/border in width calculation */
 }
@@ -74,7 +56,7 @@ position: relative;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1; /* Ensures the image is behind other elements */
+  z-index: 1;
 }
 
 .card h5 {
@@ -82,13 +64,7 @@ position: relative;
   bottom: 0;
   left: 0;
   padding: 8px 12px;
-  text-decoration: none;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.8
-  ); /* Optional for better readability */
+  background-color: rgba(255, 255, 255, 0.8);
   z-index: 2;
 }
 
@@ -98,6 +74,7 @@ position: relative;
   right: 10px;
   width: 24px;
   height: 24px;
-  z-index: 3; /* Higher z-index to appear in front of the image */
-  cursor: pointer; /* Optional for interactivity */
+  z-index: 3;
+  cursor: pointer;
 }
+

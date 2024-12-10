@@ -1,8 +1,14 @@
+.background-container{
+  background-color: #121212;
+}
+
+
 .container {
   width: 400px;
   height: 96vh;
   position: fixed;
   right: 0;
+   /* Optional background color for contrast */
 }
 .search {
   border-radius: 45px;
@@ -37,7 +43,15 @@ hr {
   width: calc(
     100vw - 400px
   ); // Subtract the `.container` width to fit the rest of the space
-  background-color: #222; // Optional: background color for clarity
+  @media (max-width: 1280px) {
+    max-width: 1280px; /* Limit the maximum width */
+    max-height: 585px; /* Limit the maximum height */
+  }
+
+  @media (max-height: 585px) {
+    max-width: 1280px; /* Ensure the width does not exceed 1280px */
+    max-height: 585px; /* Ensure the height does not exceed 585px */
+  }
 }
 
 .carousel-wrapper{
@@ -46,10 +60,19 @@ hr {
   justify-content: center;
   align-items: center;
 }
-.carousel-image{
-  width: 100%; /* Scale image to fit the width of the container */
+.image-wrapper {
+  width: 100%; /* Adjust to fill the container's width */
+  max-width: 1280px;
   height: auto;
-  max-height: 1000px;
-  object-fit: cover;
-  display: block;
+  max-height: 585px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevents overflow if the image exceeds container dimensions */
+
+  @media (max-width: 1280px), (max-height: 585px) {
+    max-width: 1000px;
+    max-height: 400px;
+    overflow: hidden; /* Prevents content overflow */
+  }
 }
