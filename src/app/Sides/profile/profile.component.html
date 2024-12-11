@@ -3,18 +3,6 @@
     <div class="profile-section">
       <div class="form-section">
         <form (ngSubmit)="update()" #updateUserForm="ngForm">
-          <div class="profile-container">
-            <div class="profile-image">
-              <img [src]="model.photo.url" alt="Profile Image" />
-              <input
-                type="text"
-                name="PhotoUrl"
-                [(ngModel)]="updateModel.photo.url"
-                class="form-control"
-                placeholder="Enter image URL"
-              />
-            </div>
-          </div>
           <div class="row mb-4">
             <div class="col-md-6">
               <input
