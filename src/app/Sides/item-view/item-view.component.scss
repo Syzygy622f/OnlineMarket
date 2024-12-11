@@ -28,6 +28,14 @@ hr {
   color: white;
   height: auto;
 }
+
+.Save{
+  cursor: pointer;
+  display: flex; /* Makes the children align in a row */
+  align-items: center; /* Vertically aligns items */
+  gap: 8px; /* Adds spacing between the SVG and text */
+}
+
 :host ::ng-deep .carousel-control-prev-icon,
 :host ::ng-deep .carousel-control-next-icon {
   background-color: #007bff; /* Blue background */

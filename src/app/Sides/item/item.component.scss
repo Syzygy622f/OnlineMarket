@@ -78,3 +78,14 @@ button {
   cursor: pointer;
 }
 
+@media screen and (min-width: 1281px) and (min-height: 600px) {
+  .container hr{
+    width: 19vw;
+  }
+
+.container textarea{
+  width: 19vw;
+  height: 30vh;
+}
+
+}

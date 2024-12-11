@@ -18,7 +18,7 @@
       </li>
       <hr />
       <li>
-        <div class="Save">
+        <div (click)="Save(item?.id)" class="Save">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -31,9 +31,9 @@
               clip-rule="evenodd"
             />
           </svg>
-          <button (click)="Save(item?.id)" class="nav-link link-light">
+          <a class="nav-link link-light">
             Gem i Liste
-          </button>
+          </a>
         </div>
       </li>
       <hr />
